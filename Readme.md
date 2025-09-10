@@ -102,5 +102,5 @@ SELECT name FROM students WHERE age > 18
 - `Use case` : Long text, descriptions, comments
 ### DATE 
 ![alt text](image-7.png)
-### UUID 
+### UUID universal unique identifier
 ![alt text](image-8.png)
