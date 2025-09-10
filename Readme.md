@@ -140,3 +140,18 @@ drop table students;
 ```bash
 drop table if exists students; 
 ```
+## 44-7 Column Constraints
+![alt text](image-10.png)
+![alt text](image-11.png)
+![alt text](image-12.png)
+![alt text](image-13.png)
+![alt text](image-14.png)
+```sql
+CREATE TABLE students (
+  student_id SERIAL PRIMARY KEY,
+  full_name  VARCHAR(100) NOT NULL,
+  email  VARCHAR(100) UNIQUE, -- email  VARCHAR(100) UNIQUE NOT NULL,
+  age INT CHECK(age >= 18),
+  status VARCHAR(20) DEFAULT 'active'
+)
+```
