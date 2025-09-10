@@ -22,3 +22,6 @@ SELECT name FROM students WHERE age > 18
 - It’s also powering the future with AI
 ## 44-2 pgAdmin Basics
 ![alt text](image-2.png)
+## 44-3 Install Beekeeper Studio
+ - run code control + enter
+![alt text](image-3.png)
