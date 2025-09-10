@@ -80,3 +80,27 @@ SELECT name FROM students WHERE age > 18
 - `Range` : 1 to 2,147,483,647
 - `Use case` : Auto-incrementing IDs, primary keys
 ![alt text](image-5.png)
+
+## 44-5 Character, Date & UUID Types
+![alt text](image-6.png)
+#### CHAR
+
+- `Storage` : n bytes
+- `Length` : Fixed length n
+- `Use case` : When you know the exact length (like country codes:'USA')
+
+#### VARCHAR
+
+- `Storage` : Variable
+- `Length` : Up to n characters
+- `Use case` : Flexible length but with a max limit (like usernames, emails)
+
+#### TEXT
+
+- `Storage` : Variable
+- `Length` : unlimited
+- `Use case` : Long text, descriptions, comments
+### DATE 
+![alt text](image-7.png)
+### UUID 
+![alt text](image-8.png)
