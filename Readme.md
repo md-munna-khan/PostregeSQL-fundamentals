@@ -20,3 +20,5 @@ SELECT name FROM students WHERE age > 18
 
 - So, SQL is a declarative language to interact with databases. It’s old but gold, and still the backbone of all modern data systems
 - It’s also powering the future with AI
+## 44-2 pgAdmin Basics
+![alt text](image-2.png)
