@@ -104,3 +104,39 @@ SELECT name FROM students WHERE age > 18
 ![alt text](image-7.png)
 ### UUID universal unique identifier
 ![alt text](image-8.png)
+
+## 44-6 Create & Drop DB/Table
+- Create database 
+
+```bash
+create database school;
+```
+
+- Delete a database 
+```bash
+drop database school;
+```
+- create a table 
+
+![alt text](image-9.png)
+```bash
+CREATE TABLE students (
+  id serial,
+  name varchar(50),
+  age int,
+  isActive boolean,
+  dob date 
+)
+```
+
+- delete a table 
+
+```bash
+drop table students;
+```
+
+- there is a safe way to delete a table (if exists delete)
+
+```bash
+drop table if exists students; 
+```
