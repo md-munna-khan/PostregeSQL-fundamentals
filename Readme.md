@@ -155,3 +155,81 @@ CREATE TABLE students (
   status VARCHAR(20) DEFAULT 'active'
 )
 ```
+## 44-8 Multiple Constraints & Insert
+### multiple constrain
+- example 1 
+
+```sql
+CREATE TABLE students (
+  id serial PRIMARY KEY,
+  username VARCHAR(100) NOT NULL,
+  email  VARCHAR(100) UNIQUE NOT NULL, -- multiple constrain 
+  age INT CHECK(age >= 18),
+  status VARCHAR(20) DEFAULT 'active'
+)
+
+```
+
+- example 2 
+
+```sql
+CREATE TABLE students (
+  id serial,
+  username VARCHAR(100) NOT NULL,
+  email  VARCHAR(100) UNIQUE NOT NULL,
+  age INT CHECK(age >= 18),
+  status VARCHAR(20) DEFAULT 'active',
+  primary key(id) -- primary key(id, email)
+)
+
+```
+- example 3 
+
+```sql
+CREATE TABLE students (
+  id serial,
+  username VARCHAR(100) NOT NULL,
+  email  VARCHAR(100) , -- update and setting unique after 
+  age INT CHECK(age >= 18),
+  status VARCHAR(20) DEFAULT 'active',
+  primary key(id)
+  unique(email) -- setting unique email afterwards 
+)
+```
+- example 4
+
+```sql
+CREATE TABLE students (
+  id serial,
+  username VARCHAR(100) NOT NULL,
+  email  VARCHAR(100) , -- update and setting unique after 
+  age INT CHECK(age >= 18),
+  status VARCHAR(20) DEFAULT 'active',
+  primary key(id)
+  unique(username,email) -- email and username must be unique
+)
+```
+- final update version 
+
+```sql
+CREATE TABLE students (
+  id serial,
+  username VARCHAR(100) NOT NULL,
+  email  VARCHAR(100) , 
+  age SMALLINT CHECK(age >= 18),
+  isActive boolean DEFAULT true,
+  primary key(id),
+  unique(username,email) 
+)
+```
+### INSERT DATA in table 
+#### Single Row Insert
+![alt text](image-15.png)
+#### Multi- Row Insert
+![alt text](image-16.png)
+####  Insert Without Column list
+![alt text](image-17.png)❌
+- 
+- this has a drawbacks like as id is not mentioned we can not insert any non serialized id and if we skip id it will show error that the name can not be inserted in id  
+
+![alt text](image-18.png)✅
