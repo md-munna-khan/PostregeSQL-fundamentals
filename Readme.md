@@ -233,3 +233,30 @@ CREATE TABLE students (
 - this has a drawbacks like as id is not mentioned we can not insert any non serialized id and if we skip id it will show error that the name can not be inserted in id  
 
 ![alt text](image-18.png)✅
+## 44-9 Insert Data Methods
+- add table 
+
+```sql
+create table
+  person (
+    id serial primary key,
+    username varchar(50) unique,
+    email varchar(50) unique,
+    age int check (age >= 20),
+    isActive boolean default false
+  );
+```
+
+- insert data 
+
+```sql
+insert into person (id, username, email, age)
+values
+  (2, 'mizan bai', 'mizan2@gmail.com', 60)
+```
+
+- see all the data 
+
+```sql 
+select * from person;
+```
