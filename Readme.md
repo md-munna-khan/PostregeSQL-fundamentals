@@ -155,3 +155,125 @@ CREATE TABLE students (
   status VARCHAR(20) DEFAULT 'active'
 )
 ```
+## 44-8 Multiple Constraints & Insert
+### multiple constrain
+- example 1 
+
+```sql
+CREATE TABLE students (
+  id serial PRIMARY KEY,
+  username VARCHAR(100) NOT NULL,
+  email  VARCHAR(100) UNIQUE NOT NULL, -- multiple constrain 
+  age INT CHECK(age >= 18),
+  status VARCHAR(20) DEFAULT 'active'
+)
+
+```
+
+- example 2 
+
+```sql
+CREATE TABLE students (
+  id serial,
+  username VARCHAR(100) NOT NULL,
+  email  VARCHAR(100) UNIQUE NOT NULL,
+  age INT CHECK(age >= 18),
+  status VARCHAR(20) DEFAULT 'active',
+  primary key(id) -- primary key(id, email)
+)
+
+```
+- example 3 
+
+```sql
+CREATE TABLE students (
+  id serial,
+  username VARCHAR(100) NOT NULL,
+  email  VARCHAR(100) , -- update and setting unique after 
+  age INT CHECK(age >= 18),
+  status VARCHAR(20) DEFAULT 'active',
+  primary key(id)
+  unique(email) -- setting unique email afterwards 
+)
+```
+- example 4
+
+```sql
+CREATE TABLE students (
+  id serial,
+  username VARCHAR(100) NOT NULL,
+  email  VARCHAR(100) , -- update and setting unique after 
+  age INT CHECK(age >= 18),
+  status VARCHAR(20) DEFAULT 'active',
+  primary key(id)
+  unique(username,email) -- email and username must be unique
+)
+```
+- final update version 
+
+```sql
+CREATE TABLE students (
+  id serial,
+  username VARCHAR(100) NOT NULL,
+  email  VARCHAR(100) , 
+  age SMALLINT CHECK(age >= 18),
+  isActive boolean DEFAULT true,
+  primary key(id),
+  unique(username,email) 
+)
+```
+### INSERT DATA in table 
+#### Single Row Insert
+![alt text](image-15.png)
+#### Multi- Row Insert
+![alt text](image-16.png)
+####  Insert Without Column list
+![alt text](image-17.png)❌
+- 
+- this has a drawbacks like as id is not mentioned we can not insert any non serialized id and if we skip id it will show error that the name can not be inserted in id  
+
+![alt text](image-18.png)✅
+## 44-9 Insert Data Methods
+- add table 
+
+```sql
+create table
+  person (
+    id serial primary key,
+    username varchar(50) unique,
+    email varchar(50) unique,
+    age int check (age >= 20),
+    isActive boolean default false
+  );
+```
+
+- insert data 
+
+```sql
+insert into person (id, username, email, age)
+values
+  (2, 'mizan bai', 'mizan2@gmail.com', 60)
+```
+
+- see all the data 
+
+```sql 
+select * from person;
+```
+## 44-10 Insert Without Column Names
+```sql
+insert into
+  person (username, email, age)
+values
+  ('sazid', 'sazid@gmail.com', 60),
+  ('shakil', 'shakil@gmail.com', 63),
+  ('kamal', 'kamal@gmail.com', 66),
+  ('jamal', 'jamal@gmail.com', 67);
+```
+- we will not basically do this 
+
+```sql
+insert into person values
+  (7, 'mizan baia', 'mizan3@gmail.com', 60);
+```
+![alt text](image-19.png)
