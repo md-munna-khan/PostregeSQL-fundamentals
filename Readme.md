@@ -260,3 +260,20 @@ values
 ```sql 
 select * from person;
 ```
+## 44-10 Insert Without Column Names
+```sql
+insert into
+  person (username, email, age)
+values
+  ('sazid', 'sazid@gmail.com', 60),
+  ('shakil', 'shakil@gmail.com', 63),
+  ('kamal', 'kamal@gmail.com', 66),
+  ('jamal', 'jamal@gmail.com', 67);
+```
+- we will not basically do this 
+
+```sql
+insert into person values
+  (7, 'mizan baia', 'mizan3@gmail.com', 60);
+```
+![alt text](image-19.png)
